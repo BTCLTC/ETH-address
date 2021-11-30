@@ -1,0 +1,11 @@
+[package]
+name = "eth_address"
+version = "0.1.0"
+authors = ["yunweb <3358621@qq.com>"]
+edition = "2018"
+
+[dependencies]
+clap = "2.32.0"
+ethkey = { path = "./src/ethkey" }
+rand = "0.6.0"
+hex = "0.3.2"
