@@ -1,20 +1,4 @@
-// Copyright 2015-2019 Parity Technologies (UK) Ltd.
-// This file is part of Parity Ethereum.
-
-// Parity Ethereum is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-
-// Parity Ethereum is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-
-// You should have received a copy of the GNU General Public License
-// along with Parity Ethereum.  If not, see <http://www.gnu.org/licenses/>.
-
-use std::{fmt, error};
+use std::fmt;
 
 #[derive(Debug)]
 /// Crypto error
@@ -38,8 +22,8 @@ pub enum Error {
 impl fmt::Display for Error {
 	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
 		let msg = match *self {
-			Error::InvalidSecret => "Invalid secret".into(),
-			Error::InvalidPublic => "Invalid public".into(),
+			Error::InvalidSecret => "Invalid secret key".into(),
+			Error::InvalidPublic => "Invalid public key".into(),
 			Error::InvalidAddress => "Invalid address".into(),
 			Error::InvalidSignature => "Invalid EC signature".into(),
 			Error::InvalidMessage => "Invalid AES message".into(),
@@ -48,18 +32,6 @@ impl fmt::Display for Error {
 		};
 
 		f.write_fmt(format_args!("Crypto error ({})", msg))
-	}
-}
-
-impl error::Error for Error {
-	fn description(&self) -> &str {
-		"Crypto error"
-	}
-}
-
-impl Into<String> for Error {
-	fn into(self) -> String {
-		format!("{}", self)
 	}
 }
 

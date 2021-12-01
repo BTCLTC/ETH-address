@@ -2,7 +2,7 @@ use std::{fs::OpenOptions, io::Write};
 
 use ethkey::Address;
 
-pub fn file_operation(private: String, address: Address) {
+pub fn file_operation(address: Address, private: String) {
     let path = String::from("./ETH.txt");
     let file = OpenOptions::new()
         .read(true)

@@ -5,7 +5,6 @@ authors = ["yunweb <3358621@qq.com>"]
 edition = "2018"
 
 [dependencies]
-clap = "2.32.0"
+rand = "0.8.4"
+hex = "0.4.3"
 ethkey = { path = "./src/ethkey" }
-rand = "0.6.0"
-hex = "0.3.2"
