@@ -23,7 +23,6 @@ fn main() {
         )
         .get_matches();
     let desired_word = matches.value_of("WORD").unwrap();
-    let verbose = matches.is_present("verbose");
     println!("Desired word in vanity address: {}", desired_word);
 
     loop {
@@ -32,14 +31,6 @@ fn main() {
         let secret_literal = hex::encode(&random32char);
         let kp = KeyPair::from_secret(secret.unwrap());
         let address = kp.unwrap().address();
-
-        match verbose {
-            true => {
-                println!("Tried private key: {}", secret_literal);
-                println!("Result address: {:? }", address);
-            }
-            false => {}
-        }
 
         let complete_vanity = String::from("0x") + desired_word;
         let address_literal = address.to_string();
