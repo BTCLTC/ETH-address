@@ -13,9 +13,10 @@ mod file;
 
 fn main() {
     let prefix = "00000000";
+    let hex = &prefix.from_hex().unwrap();
+
     loop {
         let keypair = Random.generate().unwrap();
-        let hex = &prefix.from_hex().unwrap();
 
         if keypair.address().starts_with(hex) {
             println!("Your new ethereum vanity address: {:? }", keypair.address());
