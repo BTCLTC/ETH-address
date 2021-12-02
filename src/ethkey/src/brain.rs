@@ -31,16 +31,3 @@ impl Generator for Brain {
         }
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use {Brain, Generator};
-
-    #[test]
-    fn test_brain() {
-        let words = "this is sparta!".to_owned();
-        let first_keypair = Brain(words.clone()).generate().unwrap();
-        let second_keypair = Brain(words.clone()).generate().unwrap();
-        assert_eq!(first_keypair.secret(), second_keypair.secret());
-    }
-}
