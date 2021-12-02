@@ -66,7 +66,6 @@ dependencies = [
  "ethkey",
  "hex",
  "rand 0.8.4",
- "rustc-serialize",
 ]
 
 [[package]]
