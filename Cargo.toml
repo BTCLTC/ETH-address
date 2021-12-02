@@ -8,3 +8,4 @@ edition = "2018"
 rand = "0.8.4"
 hex = "0.4.3"
 ethkey = { path = "./src/ethkey" }
+rustc-serialize = "0.3.24"
