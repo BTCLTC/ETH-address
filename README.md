@@ -17,3 +17,9 @@ let prefix_addr = &keypair.address().to_string()[..8]; // edit 8: prefix length
 ```bash
 cargo build --release
 ```
+
+## Use
+
+```bash
+./target/release/eth_address
+```
