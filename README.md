@@ -2,16 +2,24 @@
 
 以太坊靓号生成器
 
+## Edit
+
+src/main.rs
+
+```bash
+let prefix = "00000000"; // prefix
+
+let prefix_addr = &keypair.address().to_string()[..8]; // edit 8: prefix length
+```
+
 ## Installation
 
 ```bash
 cargo build --release
-eth_address --help
 ```
 
-## Usage
+## Use
 
 ```bash
-eth_address fef0 # Remember that must be hex numbers!
-# Your new ethereum vanity address: 0xfef01755a491d8bf59d9ae5d4e4f691308de4d82
+./target/release/eth_address
 ```
