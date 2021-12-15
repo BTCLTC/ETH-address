@@ -7,4 +7,6 @@ edition = "2018"
 [dependencies]
 rand = "0.8.4"
 hex = "0.4.3"
+async-std = "1.10.0"
+num_cpus = "1.13.0"
 ethkey = { path = "./ethkey" }
