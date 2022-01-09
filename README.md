@@ -1,6 +1,6 @@
 # eth_address
 
-以太坊靓号生成器
+Eth custom address prefix
 
 ## Edit
 
