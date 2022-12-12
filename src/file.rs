@@ -7,7 +7,7 @@ pub fn write_file(address: &str, private: &str, directory: &str) {
     if let Ok(mut file_txt) = file {
         let _result = write!(
             &mut file_txt,
-            "==========================================\np . u . b . k . e . y: {:?}\np . r . i . v . a . t . e: {}\n==========================================",
+            "==========================================\np . u . b . k . e . y: {}\np . r . i . v . a . t . e: {}\n==========================================",
             address, private
         );
     }
