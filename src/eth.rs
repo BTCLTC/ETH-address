@@ -6,7 +6,8 @@ use crate::file::write_file;
 
 pub struct KeyPair {
   pub address: String,
-  private_key: SecretKey
+  private_key: SecretKey,
+  random_bytes: [u8; 32]
 }
 
 impl KeyPair {
@@ -21,7 +22,8 @@ impl KeyPair {
 
     KeyPair {
       address: hex::encode(address),
-      private_key
+      private_key,
+      random_bytes
     }
   }
 
@@ -32,8 +34,9 @@ impl KeyPair {
   pub fn print_info(&self, directory: &str) {
     let address = format!("0x{}", self.address);
     let private_key = hex::encode(self.private_key.serialize());
+    println!("random_bytes: {:#?}", self.random_bytes);
     println!("Your new ethereum vanity address: {}", address);
     println!("Your new private key: {}", private_key);
-    write_file(&address, &private_key, directory);
+    write_file(&self.random_bytes, &address, &private_key, directory);
   }
 }
