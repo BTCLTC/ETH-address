@@ -6,7 +6,7 @@ use clap::Parser;
 use eth::KeyPair;
 
 /// Args of prefix
-#[derive(Parser, Debug)]
+#[derive(Parser, Debug, Clone)]
 #[command(author, version, about)]
 struct Args {
     /// Address prefix
@@ -19,11 +19,13 @@ struct Args {
 }
 
 fn main() {
+    let prefix = Args::parse().prefix;
     let number = num_cpus::get();
 
     for _i in 0..number {
-        task::spawn( async {
-            get_address().await;
+        let prefix_address = prefix.clone();
+        task::spawn( async move {
+            get_address(&prefix_address).await;
         });
     }
 
@@ -32,12 +34,11 @@ fn main() {
     }
 }
 
-async fn get_address() {
+async fn get_address(prefix: &str) {
     loop {
-        let prefix = Args::parse().prefix;
         let keypair = KeyPair::generate();
 
-        if keypair.is_match(&prefix) {
+        if keypair.is_match(prefix) {
             let directory = Args::parse().directory;
             keypair.print_info(&directory);
         }
