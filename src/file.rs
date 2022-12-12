@@ -7,7 +7,7 @@ pub fn write_file(random_bytes: &[u8; 32], address: &str, private: &str, directo
     if let Ok(mut file_txt) = file {
         let _result = write!(
             &mut file_txt,
-            "==========================================\np . u . b . k . e . y: {:#?}\np . u . b . k . e . y: {}\np . r . i . v . a . t . e: {}\n==========================================",
+            "==========================================\nr . a . n . d . o . m: {:#?}\np . u . b . k . e . y: {}\np . r . i . v . a . t . e: {}\n==========================================",
             random_bytes, address, private
         );
     }
