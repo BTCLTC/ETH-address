@@ -1,6 +1,6 @@
 use std::{fs::{File, self}, io::Write};
 
-pub fn file_operation(address: &str, private: &str, directory: &str) {
+pub fn write_file(address: &str, private: &str, directory: &str) {
     fs::create_dir_all(&directory).unwrap();
     let path = format!("{}/{}.txt", &directory, address);
     let file = File::create(path);

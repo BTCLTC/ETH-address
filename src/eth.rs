@@ -2,7 +2,7 @@ use rand::Rng;
 use libsecp256k1::{PublicKey, SecretKey};
 use sha3::{Digest, Keccak256};
 
-use crate::file::file_operation;
+use crate::file::write_file;
 
 pub struct KeyPair {
   pub address: String,
@@ -34,6 +34,6 @@ impl KeyPair {
     let private_key = hex::encode(self.private_key.serialize());
     println!("Your new ethereum vanity address: {}", address);
     println!("Your new private key: {}", private_key);
-    file_operation(&address, &private_key, directory);
+    write_file(&address, &private_key, directory);
   }
 }
