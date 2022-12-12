@@ -2,14 +2,14 @@
 
 Eth custom address prefix
 
-## Edit
-
-src/main.rs
-
 ```bash
-let prefix = "00000000"; // prefix
+Usage: eth_address [OPTIONS]
 
-let prefix_addr = &keypair.address().to_string()[..8]; // edit 8: prefix length
+Options:
+  -p, --prefix <PREFIX>        Address prefix [default: 00000000]
+  -d, --directory <DIRECTORY>  Save file directory [default: ./]
+  -h, --help                   Print help information
+  -V, --version
 ```
 
 ## Installation
@@ -21,5 +21,5 @@ cargo build --release
 ## Use
 
 ```bash
-./target/release/eth_address
+./target/release/eth_address -p 000000 -d ../../ETH
 ```
